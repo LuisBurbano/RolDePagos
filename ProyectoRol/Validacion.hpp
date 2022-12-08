@@ -411,6 +411,7 @@ public:
         string lectura;
         ifstream archivo;
         std::fstream archivoAux;
+        int contador = 0;
         archivo.open("RolDePagos.txt", ios::in);
         if (archivo.fail())
         {
@@ -420,9 +421,17 @@ public:
         while (!archivo.eof())
         {   
             getline(archivo, texto);
+            
             if (lineaBorrar!=texto)
             {
-                lectura += texto + "\n";
+                if (contador==0)
+                {
+                    lectura += texto;
+                    contador++;
+                }
+                else {
+                    lectura += "\n" + texto;
+                }
                    
             }
             
@@ -448,6 +457,7 @@ public:
         string lectura;
         ifstream archivo;
         std::fstream archivoAux;
+        int contador = 0;
         archivo.open("RolDePagos.txt", ios::in);
         if (archivo.fail())
         {
@@ -459,11 +469,28 @@ public:
             getline(archivo, texto);
             if (lineaBorrar != texto)
             {
-                lectura += texto + "\n";
+                if (contador==0)
+                {
+                    lectura +=texto;
+                    contador++;
+                }
+                else {
+                    lectura += "\n" + texto;
+
+                }
 
             }
             else {
-                lectura += lineaNueva + "\n";
+                if (contador == 0)
+                {
+                    lectura +=lineaNueva;
+                    contador++;
+                }
+                else {
+                    lectura += "\n" + lineaNueva;
+
+                }
+                
             }
 
         }
@@ -485,6 +512,16 @@ public:
     }
 	
     void mostrarProvincia() {
+
+        vector<string> results;
+        string line;
+        string lectura;
+        string datoEncontrado;
+        string digitosCedula;
+        lectura = leerArchivoTxt();
+        stringstream input_stringstream(lectura);
+        int contadorProvincias[23];
+        int aux = 0;
         string provincias[23][2]={{"Azuay", "01"},{"Bolivar","02"},{"Cañar", "03"},
             {"Carchi", "04"},
             {"Cotopaxi", "05"},
@@ -508,38 +545,28 @@ public:
             {"Santa Elena", "23"}
             
         };
-        int contadorProvincias[23];
+        
 
+        
+        //se inicializan el array con 0
         for (int i = 0; i < 22; i++)
         {
             contadorProvincias[i] = 0;
         }
 
-		
-     
-        vector<string> results;
-        string line;
-        string lectura;
-        string datoEncontrado;
-        string digitosCedula;
-        int contador = 0;
-
-        lectura = leerArchivoTxt();
-        char delimitador = '\n';
-        stringstream input_stringstream(lectura);
-
         while (getline(input_stringstream, line, '\n'))
-        {
+        {            
             results = split(line, ' ');
             for (int i = 0; i < 1; i++)
             {
                 datoEncontrado = results[i];                
                 digitosCedula = datoEncontrado[0];
-                digitosCedula += datoEncontrado[1];
+                digitosCedula += datoEncontrado[1];   
                 
                 for (int k = 0; k < 22; k++)
                 {
                     if (digitosCedula == provincias[k][1]) {
+                        cout << "CEDULAS: " << datoEncontrado << endl;
                         contadorProvincias[k] += 1;
                     }
                 }
@@ -547,13 +574,12 @@ public:
             }
 
         }
-        int au = 0;
+        
         for (int i = 0; i < 22; i++)
         {          
-			au = contadorProvincias[i];
-            if (au!=0)
+			aux = contadorProvincias[i];
+            if (aux!=0)
             {
-                //cout << i << endl;
                 cout << "Provincias: " << provincias[i][0] << " Cantidad de personas: " << contadorProvincias[i] << endl;
             }
    

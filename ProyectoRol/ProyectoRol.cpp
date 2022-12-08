@@ -45,7 +45,8 @@ int main(int argc, char *argv[])
         cout << "|        ~ 4. Vizualizar trabajadores en la lista doble ~        |" << endl;
         cout << "|        ~ 5. Eliminar Registro ~                                |" << endl;
         cout << "|        ~ 6. Modificar Registro ~                               |" << endl;
-        cout << "|        ~ 7. Salir ~                                            |" << endl;
+        cout << "|        ~ 7. Mostrar cedulas por provincias ~                   |" << endl;
+        cout << "|        ~ 8. Salir ~                                            |" << endl;
         cout << "|----------------------------------------------------------------|" << endl;
 
         opcion = validacion->charToInt();
@@ -57,7 +58,6 @@ int main(int argc, char *argv[])
             ingresos = rol->generarIngresos();
             egresos = rol->generarEgresos(ingresos->getTotalIngresos());
             rol->imprimirRol(trabajador, ingresos, egresos);
-            //cout << "el tostring:" << rol->toString(trabajador, ingresos, egresos);
             rol->guardarArchivoTxt(rol->toString(trabajador, ingresos, egresos));
             system("pause");
             break;
@@ -90,16 +90,18 @@ int main(int argc, char *argv[])
             system("pause");
             break;
         case 7:
+            system("cls");
+            rol->verRolesDePago();
+            validacion->mostrarProvincia();
+            system("pause");
+        case 8:
             cout << "\n\tSaliendo..." << endl;
             cout << "\n\tGracias por usar nuestro programa " << endl;
             system("pause");
             break;
-        case 8:
-			system("cls");
-            validacion->mostrarProvincia();
-			system("pause");
+        
         }
-    } while (opcion != 7);
+    } while (opcion != 8);
 
 	delete rol;
 	delete trabajador;
