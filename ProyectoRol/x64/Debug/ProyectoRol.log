@@ -1,0 +1,15 @@
+﻿  Egresos.cpp
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\Validacion.hpp(284,1): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Ingresos.cpp
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\Validacion.hpp(284,1): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  ProyectoRol.cpp
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\Validacion.hpp(284,1): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  RolDePagos.cpp
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\Validacion.hpp(284,1): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\RolDePagos.cpp(92,8): warning C4102: 'std': etiqueta sin referencia
+  Trabajador.cpp
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\Validacion.hpp(284,1): warning C4267: '=': conversión de 'size_t' a 'int'; posible pérdida de datos
+  Generando código...
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\Validacion.hpp(320): warning C4715: 'Validacion::verificarUsuario': no todas las rutas de acceso de control devuelven un valor
+C:\Users\luis1\Documents\Proyectos\ProyectoRol\ProyectoRol\ListaDoble.hpp(182): warning C4715: 'ListaDoble<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::mostrar': no todas las rutas de acceso de control devuelven un valor
+  ProyectoRol.vcxproj -> C:\Users\luis1\Documents\Proyectos\ProyectoRol\x64\Debug\ProyectoRol.exe
